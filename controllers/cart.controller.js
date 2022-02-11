@@ -1,4 +1,4 @@
-const cartContent = [];
+let cartContent = [];
 
 export const getCart = (req, res) => {
     res.send(cartContent);
@@ -19,7 +19,11 @@ export const addToCart = (req, res) => {
             cartContent
         });
     }
+
+    console.log(cartContent)
 }
+
+
 export const removeFromCart = (req,res) => {
     const id = (req.query.id);
 
@@ -37,4 +41,12 @@ export const removeFromCart = (req,res) => {
             cartContent
         });
     }
+}
+
+export const clearCart = (req, res) => {
+    cartContent = [];
+    res.send({
+        status: 'OK',
+        cartContent
+    })
 }
